@@ -1,0 +1,61 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cumulative from 1 after page loaded </title>
+
+    <style>
+        div {
+            text-align: center;
+            font-size: 100px;
+            padding: 100px;
+        }
+        
+        button {
+            display: block;
+            margin: 50px auto;
+            width: 500px;
+            height: 100px;
+            font-size: 30px;
+        }
+        
+        span {
+            color: crimson
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id=“timerBtn” onclick="timing()">Timing start</button>
+    <!--多次点击会如何?如何让按钮只可点击一次？-->
+    <!--可考虑一个重置按钮-->
+    <div id="demo">
+
+    </div>
+
+    <script>
+        var oBody = document.getElementById("demo");
+        let timer = null;
+        let s = 0;
+        let c = 0;
+
+        function timing() {
+  c++;
+  if (c % 2 === 1) {
+    
+    timer = setInterval(function() {
+     var j= s++;
+      oBody.innerHTML ="Time passed: " + "<span>" + j + "</span>" + " s";
+    }, 1000);
+  } else {
+   
+    clearInterval(timer);
+  }
+}
+  
+    </script>
+</body>
+
+</html>
